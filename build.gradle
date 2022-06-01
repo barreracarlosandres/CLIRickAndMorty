@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'com.rickandmorty'
+version '0.0.1'
+
+sourceCompatibility = 1.8
+
+application {
+    mainClassName = "com.rickandmorty.RickAndMortySearch"
+    applicationName = "api-search"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'org.projectlombok:lombok:1.18.20'
+    implementation 'com.beust:jcommander:1.78'
+    implementation 'io.github.openfeign:feign-core:10.6.0'
+    implementation 'io.github.openfeign:feign-gson:10.6.0'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
