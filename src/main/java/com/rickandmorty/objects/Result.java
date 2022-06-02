@@ -38,7 +38,7 @@ public final class Result {
     private String printEpisode(String[] episodes){
         String salida = "";
         for(String s: episodes){
-            if( s.length()==episodes.length-1){
+            if( s.equals(episodes[episodes.length-1]) ) {
                 salida+=s;
             } else {
                 salida += s + "\n\t\t\t";
