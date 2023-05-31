@@ -36,14 +36,14 @@ public final class Result {
     }
 
     private String printEpisode(String[] episodes){
-        String salida = "";
+        StringBuilder salida = new StringBuilder();
         for(String s: episodes){
             if( s.equals(episodes[episodes.length-1]) ) {
-                salida+=s;
+                salida.append(s);
             } else {
-                salida += s + "\n\t\t\t";
+                salida.append(s).append("\n\t\t\t");
             }
         }
-        return salida;
+        return salida.toString();
     }
  }

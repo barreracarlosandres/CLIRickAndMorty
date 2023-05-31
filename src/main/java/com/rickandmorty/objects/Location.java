@@ -1,19 +1,14 @@
 package com.rickandmorty.objects;
 
+import lombok.Getter;
+
 import java.util.Objects;
 
-public class Location {
+@Getter
+public final class Location {
 
     private String name;
     private String url;
-
-    public String getName() {
-        return name;
-    }
-
-    public String getUrl() {
-        return url;
-    }
 
     @Override
     public boolean equals(Object o) {

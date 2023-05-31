@@ -6,10 +6,10 @@ public final class CLIArguments {
     /**
      * Constructor default para permitir que solo clases en el paquete, puedan crear objetos
      * de esta clase.
-     * De esta manera obligamos a que la construccion se haga mediante funciones publicas o
+     * De esta manera obligamos a que la construcción se haga mediante funciones públicas o
      * builders.
      * <p>
-     * Las instancias deberan crearse mediante: CLIArguments#newInstance
+     * Las instancias deberán crearse mediante: CLIArguments#newInstance
      */
 
     CLIArguments(){
@@ -17,7 +17,7 @@ public final class CLIArguments {
 
     @Parameter(
             names = {"--name", "-n"},
-            description = "Search by name of character",
+            description = "Search by contain name of character. Example ./gradlew run --args='--name Summer'",
             validateWith = CLIKeywordValidator.class
     )
     private String name;
@@ -57,7 +57,7 @@ public final class CLIArguments {
 
     @Parameter(
             names = {"--page", "-p"},
-            description = "Number of page to search. page 1 by default"
+            description = "Number of page to search. By default is page 1"
     )
     private int page = 1;
 

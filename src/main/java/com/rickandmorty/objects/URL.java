@@ -5,10 +5,9 @@ import lombok.Getter;
 
 @Getter
 @EqualsAndHashCode
-public class URL {
+public final class URL {
 
     private String name;
-
     private String url;
 
     @Override

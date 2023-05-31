@@ -6,7 +6,7 @@ import java.util.List;
 
 @Getter
 @EqualsAndHashCode
-public class CharacterRickAndMorty {
+public final class CharacterRickAndMorty {
 
     private Info info;
     private List<Result> results;
