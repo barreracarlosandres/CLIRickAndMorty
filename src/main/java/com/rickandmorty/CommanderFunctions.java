@@ -40,15 +40,14 @@ public class CommanderFunctions {
     }
 
     /**
-     * Funcion utilizada para tomar los datos de JCommander, los argumentos esperados y en caso de que algo falle,
-     * una funcion con el JCommander que genero el error.
+     * Función utilizada para tomar los datos de JCommander, los argumentos esperados y en caso de que algo falle,
+     * una función con el JCommander que genero el error.
      */
     static Optional<List<Object>> parseArguments(
             JCommander jCommander,
             String[] arguments,
             OnCommandError onCommandError
     ) {
-        List<Object> result;
         try {
             jCommander.parse(arguments);
 

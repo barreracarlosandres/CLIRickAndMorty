@@ -16,29 +16,39 @@ import static com.rickandmorty.api.APIFunctions.buildAPI;
 
 public class RickAndMortySearch {
 
+    private static final String COMMAND_NAME = "api-search";
+    private static final String URL_API = "https://rickandmortyapi.com";
+
+
+    private static JCommander getjCommander() {
+        return CommanderFunctions.buildCommanderWithName(COMMAND_NAME, CLIArguments::newInstance);
+    }
+
+    private static Stream<CLIArguments> getCliArgumentsStream(String[] args, JCommander jCommander) {
+        return parseArguments(jCommander, args, JCommander::usage).orElse(Collections.emptyList()).stream().map(
+                CLIArguments.class::cast);
+    }
+
+    private static Stream<CharacterRickAndMorty> executeRequest(Map<String, Object> options) {
+
+        RickAndMortyAPI api = buildAPI(RickAndMortyAPI.class, URL_API);
+
+        return Stream.of(options).map(api::getAllCharacters);
+    }
+
     public static void main(String[] args) {
 
-        JCommander jCommander = CommanderFunctions.buildCommanderWithName("api-search", CLIArguments::newInstance);
+        JCommander jCommander = getjCommander();
 
-        Stream<CLIArguments> streamOfCLI = parseArguments(jCommander, args, JCommander::usage)
-                        .orElse(Collections.emptyList())
-                        .stream()
-                        .map(obj -> (CLIArguments) obj);
+        Stream<CLIArguments> streamOfCLI = getCliArgumentsStream(args, jCommander);
 
         Optional<CLIArguments> cliOptional = streamOfCLI
                 .filter(cli -> !cli.isHelp())
                 .findFirst();
 
         cliOptional.map(CLIFunctions::toMap)
-                .map(RickAndMortySearch::executeRequest)
-                .orElse(Stream.empty())
-                .forEach(System.out::println);
-    }
-
-    private static Stream<CharacterRickAndMorty> executeRequest(Map<String, Object> options) {
-
-        RickAndMortyAPI api = buildAPI(RickAndMortyAPI.class, "https://rickandmortyapi.com");
-
-        return Stream.of(options).map(api::getAllCharacters);
+                   .map(RickAndMortySearch::executeRequest)
+                   .orElse(Stream.empty())
+                   .forEach(System.out::println);
     }
 }

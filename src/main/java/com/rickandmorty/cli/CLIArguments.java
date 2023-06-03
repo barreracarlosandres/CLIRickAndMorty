@@ -24,7 +24,7 @@ public final class CLIArguments {
 
     @Parameter(
             names = {"--status", "-st"},
-            description = "Search by status of character ('Alive', 'Dead' or 'unknown') "
+            description = "Search by status of character ('Alive', 'Dead' or 'unknown')"
     )
     private String status;
 
@@ -51,7 +51,7 @@ public final class CLIArguments {
             names = {"--help", "-h"},
             help = true,
             validateWith = CLIHelpValidator.class,
-            description = "To show help"
+            description = "To help"
     )
     private boolean isHelp;
 
