@@ -17,20 +17,20 @@ public final class CLIArguments {
 
     @Parameter(
             names = {"--name", "-n"},
-            description = "Search by contain name of character. Example ./gradlew run --args='--name Summer'",
+            description = "Search by contain name of character (\"Summer Clone\")",
             validateWith = CLIKeywordValidator.class
     )
     private String name;
 
     @Parameter(
             names = {"--status", "-st"},
-            description = "Search by status of character ('Alive', 'Dead' or 'unknown')"
+            description = "Search by status of character (\"Alive\", \"Dead\" or \"unknown\")"
     )
     private String status;
 
     @Parameter(
             names = {"--species", "-sp"},
-            description = "Search by species of character"
+            description = "Search by species of character (\"Human\", \"Mythological Creature\", \"Alien\", etc...)"
     )
     private String species;
 
@@ -43,7 +43,7 @@ public final class CLIArguments {
 
     @Parameter(
             names = {"--gender", "-g"},
-            description = "Search by gender of the character ('Female', 'Male', 'Genderless' or 'unknown')."
+            description = "Search by gender of the character (\"Female\", \"Male\", \"Genderless\" or \"unknown\")."
     )
     private String gender;
 

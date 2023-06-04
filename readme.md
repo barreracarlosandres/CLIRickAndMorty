@@ -13,12 +13,11 @@
 #### Objetivo
 Usar programación funcional para implementar un CLI que permite consultar el API Rick And Morty
 - Nota, se usó de base el código implementado por el docente Sinuhé Jaime Valencia de Platzi en el [Curso de programación Funcional con Java SE](https://platzi.com/cursos/java-funcional/)
-- Se adicionaron algunos test unitarios
 
 #### Documentación Rick And Morty
 - [The Rick And Morty API](https://rickandmortyapi.com/)
 
-#### Cómo correr el CLI
+#### Cómo ejecutar el CLI
 - por línea de comando valida las opciones del CLI
   - ./gradlew run --args='-h' y debe retornar el menú así: ![img.png](img.png)
 
